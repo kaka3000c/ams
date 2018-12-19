@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\xcx;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use \App\Order;
@@ -27,10 +28,10 @@ class OrderController extends Controller
             $Order->username = $userName;
             $Order->pro_id = $productId;
             $Order->phone = $phone;
-            $Order->user_id = $user_arr['user_id'] ;
+            $Order->user_id = $user_arr['id'] ;
             $Order->save();
             
-       $result = array('code' => 0,'message'=> '成功');
+       $result = array('code' => 0,'message'=> '成功', 'user'=> '666' );
         return json_encode($result);
     }
 }

@@ -5,16 +5,19 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
-use App\Banner;
-class BannerController extends Controller
+use App\Category;
+class CategoryController extends Controller
 {
     
      public function index(Request $request)
     {
-         $Banner = new Banner;
-         $banner_list = $Banner::all();
+         $Category = new Category;
+         $category_list = $Category::all();
          
-         return view('admin/banner_list', ['banner_list' => $banner_list]);
+         //print_r($category_list);
+         
+         return view('admin/category_list', ['category_list' => $category_list]);
+         
          
     }
      public function add(Request $request)

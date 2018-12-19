@@ -63,7 +63,7 @@ var helpLang = "zh_cn";
           订单管理                    <div class="submenu">
             <div class="title">订单管理</div>
             <ul>
-                          <li id="sub-menu-02_order_list" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=list" target="main-frame">订单列表</a></li>
+                          <li id="sub-menu-02_order_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/order" target="main-frame">订单列表</a></li>
                           <li id="sub-menu-03_order_query" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=order_query" target="main-frame">订单查询</a></li>
                           <li id="sub-menu-04_merge_order" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=merge" target="main-frame">合并订单</a></li>
                           <li id="sub-menu-05_edit_order_print" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=templates" target="main-frame">订单打印</a></li>
@@ -115,7 +115,7 @@ var helpLang = "zh_cn";
           会员管理                    <div class="submenu">
             <div class="title">会员管理</div>
             <ul>
-                          <li id="sub-menu-03_users_list" class="menu-item" onclick="showact(this, event)"><a href="users.php?act=list" target="main-frame">会员列表</a></li>
+                          <li id="sub-menu-03_users_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/user" target="main-frame">会员列表</a></li>
                           <li id="sub-menu-04_users_add" class="menu-item" onclick="showact(this, event)"><a href="users.php?act=add" target="main-frame">添加会员</a></li>
                           <li id="sub-menu-05_user_rank_list" class="menu-item" onclick="showact(this, event)"><a href="user_rank.php?act=list" target="main-frame">会员等级</a></li>
                           <li id="sub-menu-06_list_integrate" class="menu-item" onclick="showact(this, event)"><a href="integrate.php?act=list" target="main-frame">会员整合</a></li>
@@ -129,7 +129,7 @@ var helpLang = "zh_cn";
           权限管理                    <div class="submenu">
             <div class="title">权限管理</div>
             <ul>
-                          <li id="sub-menu-admin_list" class="menu-item" onclick="showact(this, event)"><a href="privilege.php?act=list" target="main-frame">管理员列表</a></li>
+                          <li id="sub-menu-admin_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/adminuser" target="main-frame">管理员列表</a></li>
                           <li id="sub-menu-admin_logs" class="menu-item" onclick="showact(this, event)"><a href="admin_logs.php?act=list" target="main-frame">管理员日志</a></li>
                           <li id="sub-menu-admin_role" class="menu-item" onclick="showact(this, event)"><a href="role.php?act=list" target="main-frame">角色管理</a></li>
                           <li id="sub-menu-agency_list" class="menu-item" onclick="showact(this, event)"><a href="agency.php?act=list" target="main-frame">办事处列表</a></li>

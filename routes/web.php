@@ -55,11 +55,21 @@ Route::get('/admin/banner', '\App\Http\Controllers\Admin\BannerController@index'
 Route::get('/admin/banner/add', '\App\Http\Controllers\Admin\BannerController@add');
 Route::post('/admin/banner/insert', '\App\Http\Controllers\Admin\BannerController@insert');
 
+//后台订单管理页面
+Route::get('/admin/order', '\App\Http\Controllers\Admin\OrderController@index');
+
+
+//后台用户管理页面
+Route::get('/admin/user', '\App\Http\Controllers\Admin\UserController@index');
+
+//后台管理员用户管理页面
+Route::get('/admin/adminuser', '\App\Http\Controllers\Admin\AdminUserController@index');
 
 Route::get('/admin/menu', '\App\Http\Controllers\Admin\MenuController@index');
 Route::get('/admin/top', '\App\Http\Controllers\Admin\TopController@index');
 
-
+//后台产品类别管理页面
+Route::get('/admin/category', '\App\Http\Controllers\Admin\CategoryController@index');
 
 Route::get('/signlog/{id}', '\App\Http\Controllers\SignLogController@insert');
 

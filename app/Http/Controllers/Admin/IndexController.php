@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\User;
-use \App\Admin_user;
+use \App\AdminUser;
 class IndexController extends Controller
 {
      public function index(Request $request)
@@ -28,7 +28,7 @@ class IndexController extends Controller
          echo $name;
          $password  = request('password');
          echo $password;
-         $posts =  Admin_user::where('user_name', $name)->where('password', $password)->get();
+         $posts =  AdminUser::where('user_name', $name)->where('password', $password)->get();
         
       if(!empty($posts->toArray())){
           
