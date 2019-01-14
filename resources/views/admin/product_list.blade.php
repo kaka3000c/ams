@@ -109,8 +109,8 @@ var cancel_color = "无样式";
 <div class="mask-black" id="CMask"></div>
 <!--遮罩-->
 <h1>
-      <a href="goods.php?act=add" class="btn btn-right btn-add-goods">添加新商品</a>
-  <a class="btn btn-right" href="http://yunqi.shopex.cn/products/huodiantong" target="_blank">快速录入商品</a>
+      <a href="/admin/product/add" class="btn btn-right btn-add-goods">添加新商品</a>
+ 
   
     <span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1">&nbsp;&nbsp;>&nbsp;&nbsp;商品列表 </span>
   <div style="clear:both"></div>
@@ -118,7 +118,8 @@ var cancel_color = "无样式";
 <!-- 商品搜索 -->
 <!-- $Id: goods_search.htm 16790 2009-11-10 08:56:15Z wangleisvn $ -->
 <div class="form-div">
-  <form action="javascript:searchGoods()" name="searchForm">
+  <form action="/admin/product/search" name="searchForm" enctype="multipart/form-data" method="post">
+           {{ csrf_field() }}
         <!-- 分类 -->
     商品分类
     <select name="cat_id"><option value="0">所有分类</option><option value="26" >家用电器</option><option value="27" >&nbsp;&nbsp;&nbsp;&nbsp;大家电</option><option value="28" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;平板电脑</option><option value="32" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冰箱</option><option value="29" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家用空调</option><option value="30" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家电配件</option><option value="31" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;洗衣机</option><option value="25" >数码时尚</option><option value="18" >智能硬件</option><option value="22" >移动电源</option><option value="6" >手机</option><option value="9" >&nbsp;&nbsp;&nbsp;&nbsp;电池</option><option value="8" >&nbsp;&nbsp;&nbsp;&nbsp;耳机</option><option value="19" >配件</option><option value="24" >&nbsp;&nbsp;&nbsp;&nbsp;数码时尚</option><option value="20" >&nbsp;&nbsp;&nbsp;&nbsp;保护壳</option><option value="16" >服装</option><option value="12" >充值卡</option><option value="1" >手机类型</option><option value="3" >&nbsp;&nbsp;&nbsp;&nbsp;小型手机</option><option value="4" >&nbsp;&nbsp;&nbsp;&nbsp;3G手机</option></select>
@@ -163,39 +164,58 @@ var cancel_color = "无样式";
 <table cellpadding="3" cellspacing="1">
   <tr>
     <th class="checks"><input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox"></th>
-    <th><a href="javascript:listTable.sort('goods_id'); ">编号</a><img src="images/sort_desc.png"/></th>
+    <th><a href="javascript:listTable.sort('goods_id'); ">编号</a><img src="/storage/images/sort_desc.png"/></th>
     <th><a href="javascript:listTable.sort('goods_name'); ">商品名称</a></th>
     <th><a href="javascript:listTable.sort('goods_sn'); ">图片</a></th>
-    <th><a href="javascript:listTable.sort('shop_price'); ">价格</a></th>
+    <th><a href="javascript:listTable.sort('shop_price'); ">本店价格</a></th>
+    <th><a href="javascript:listTable.sort('shop_price'); ">市场价格</a></th>
     <th><a href="javascript:listTable.sort('is_on_sale'); ">上架</a></th>
     <th><a href="javascript:listTable.sort('is_best'); ">精品</a></th>
     <th><a href="javascript:listTable.sort('is_new'); ">新品</a></th>
     <th><a href="javascript:listTable.sort('is_hot'); ">热销</a></th>
-    <th><a href="javascript:listTable.sort('sort_order'); ">推荐排序</a></th>
+    
         <th><a href="javascript:listTable.sort('goods_number'); ">库存</a></th>
         <th><a href="javascript:listTable.sort('virtual_sales'); ">虚拟销量</a></th>
     <th>操作</th>
   </tr>
       @foreach ($product_list as $product)
     <tr>
-    <td><input type="checkbox" name="checkboxes[]" value="72"></td>
-    <td>{{ $product->pro_id }}</td>
-    <td class="first-cell" style=""><span onclick="listTable.edit(this, 'edit_goods_name', 72)">{{ $product->name }}</span></td>
-    <td><span onclick="listTable.edit(this, 'edit_goods_sn', 72)"><img height="35" src="{{ $product->image }}" /></span></td>
-    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">149.00</span></td>
-    <td align="center"><img src="images/yes.svg" width="20" onclick="listTable.toggle(this, 'toggle_on_sale', 72)" /></td>
-    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_best', 72)" /></td>
-    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_new', 72)" /></td>
-    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_hot', 72)" /></td>
-    <td align="center"><span onclick="listTable.edit(this, 'edit_sort_order', 72)">100</span></td>
-        <td align="right"><span onclick="listTable.edit(this, 'edit_goods_number', 72)">20</span></td>
-        <td align="center"><span onclick="listTable.edit(this, 'edit_virtual_sales', 72)">0</span></td>
+    <td><input type="checkbox" name="pro_id[]" value="{{ $product['pro_id']  }}"></td>
+    <td>{{ $product['pro_id'] }}</td>
+    <td class="first-cell" style=""><span onclick="listTable.edit(this, 'edit_goods_name', 72)">{{ $product['goods_name'] }}</span></td>
+    <td><span onclick="listTable.edit(this, 'edit_goods_sn', 72)"><img height="35" src="{{ $product['goods_img'] }}" /></span></td>
+          <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">{{ $product['shop_price'] }}</span></td>
+    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">{{ $product['market_price'] }}</span></td>
+    
     <td align="center">
-      <a href="../goods.php?id=72" target="_blank" title="查看">查看</a>
-      <a href="goods.php?act=edit&goods_id=72&extension_code=" title="编辑">编辑</a>
-      <a href="goods.php?act=copy&goods_id=72&extension_code=" title="复制">复制</a>
-      <a href="javascript:;" onclick="listTable.remove(72, '您确实要把该商品放入回收站吗？')" title="回收站">回收站</a>
-      <img src="images/empty.gif" width="16" height="16" border="0">          </td>
+        @if ( $product['is_on_sale'] === 1) <a href="/admin/product/off_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/yes.svg" width="20" " />  </a> @endif   
+           @if ( $product['is_on_sale'] === 0)   <a href="/admin/product/on_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/no.svg" width="20" " />  </a>  @endif   
+    
+    </td>
+    
+     <td align="center">
+        @if ( $product['is_best'] === 1) <a href="/admin/product/off_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/yes.svg" width="20" " />  </a> @endif   
+           @if ( $product['is_best'] === 0)   <a href="/admin/product/on_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/no.svg" width="20" " />  </a>  @endif   
+    
+    </td>
+     <td align="center">
+        @if ( $product['is_new'] === 1) <a href="/admin/product/off_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/yes.svg" width="20" " />  </a> @endif   
+           @if ( $product['is_new'] === 0)   <a href="/admin/product/on_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/no.svg" width="20" " />  </a>  @endif   
+    
+    </td>
+     <td align="center">
+        @if ( $product['is_hot'] === 1) <a href="/admin/product/off_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/yes.svg" width="20" " />  </a> @endif   
+           @if ( $product['is_hot'] === 0)   <a href="/admin/product/on_sale/{{ $product['pro_id']  }}"> <img src="/storage/images/no.svg" width="20" " />  </a>  @endif   
+    
+    </td>
+   
+        <td align="right"><span onclick="listTable.edit(this, 'edit_goods_number', 72)">{{ $product['goods_number'] }}</span></td>
+        <td align="center"><span onclick="listTable.edit(this, 'edit_virtual_sales', 72)">{{ $product['virtual_sales'] }}</span></td>
+    <td align="center">
+      <a href="/product/detail/{{ $product['pro_id'] }}" target="_blank" title="查看">查看</a>
+      <a href="/admin/product/edit/{{ $product['pro_id'] }}" title="编辑">编辑</a>
+      <a href="/admin/product/delete/{{ $product['pro_id'] }}" title="回收站">回收站</a>
+           </td>
   </tr>
     @endforeach
   </table>
@@ -210,7 +230,7 @@ var cancel_color = "无样式";
     <td align="right" nowrap="true">
     <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
 <div id="turn-page">
- {{ $product_list->links() }}
+    {{ $product_list->appends(request()->input())->links() }}
 </div>
     </td>
   </tr>

@@ -109,34 +109,35 @@ var cancel_color = "无样式";
 <div class="mask-black" id="CMask"></div>
 <!--遮罩-->
 <h1>
-      <a href="goods.php?act=add" class="btn btn-right btn-add-goods">添加新商品</a>
-  <a class="btn btn-right" href="http://yunqi.shopex.cn/products/huodiantong" target="_blank">快速录入商品</a>
+      
   
-    <span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1">&nbsp;&nbsp;>&nbsp;&nbsp;商品列表 </span>
+    <span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1">&nbsp;&nbsp;>&nbsp;&nbsp;订单列表 </span>
   <div style="clear:both"></div>
 </h1><script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="js/listtable.js"></script>
-<!-- 商品搜索 -->
-<!-- $Id: goods_search.htm 16790 2009-11-10 08:56:15Z wangleisvn $ -->
+
 <div class="form-div">
-  <form action="javascript:searchGoods()" name="searchForm">
-        <!-- 分类 -->
-    商品分类
-    <select name="cat_id"><option value="0">所有分类</option><option value="26" >家用电器</option><option value="27" >&nbsp;&nbsp;&nbsp;&nbsp;大家电</option><option value="28" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;平板电脑</option><option value="32" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冰箱</option><option value="29" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家用空调</option><option value="30" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家电配件</option><option value="31" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;洗衣机</option><option value="25" >数码时尚</option><option value="18" >智能硬件</option><option value="22" >移动电源</option><option value="6" >手机</option><option value="9" >&nbsp;&nbsp;&nbsp;&nbsp;电池</option><option value="8" >&nbsp;&nbsp;&nbsp;&nbsp;耳机</option><option value="19" >配件</option><option value="24" >&nbsp;&nbsp;&nbsp;&nbsp;数码时尚</option><option value="20" >&nbsp;&nbsp;&nbsp;&nbsp;保护壳</option><option value="16" >服装</option><option value="12" >充值卡</option><option value="1" >手机类型</option><option value="3" >&nbsp;&nbsp;&nbsp;&nbsp;小型手机</option><option value="4" >&nbsp;&nbsp;&nbsp;&nbsp;3G手机</option></select>
-    <!-- 品牌 -->
-    品牌
-    <select name="brand_id"><option value="0">所有品牌</option><option value="4">飞利浦</option><option value="5">夏新</option><option value="15">仓品</option></select>
-    <!-- 推荐 -->
-    推荐类别
-    <select name="intro_type"><option value="0">全部</option><option value="is_best">精品</option><option value="is_new">新品</option><option value="is_hot">热销</option><option value="is_promote">特价</option><option value="all_type">全部推荐</option></select>
-        
-    <!-- 供货商 -->
-    供货商
-    <select name="suppliers_id"><option value="0">全部</option><option value="1">北京供货商</option><option value="2">上海供货商</option></select>
-        <!-- 上架 -->
-    上架状态
-    <input type="radio" name="is_on_sale" id="" value="1"> 上架    <input type="radio" name="is_on_sale" id="" value="0"> 下架        <!-- 关键字 -->
-    &nbsp;&nbsp; 关键字 <input type="text" name="keyword" size="25" />
-    <button type="submit" class="btn"> 搜索 </button>
+  <form action="javascript:searchOrder()" name="searchForm">
+    <!-- <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" /> -->
+    订单号<input name="order_sn" type="text" id="order_sn" size="15">
+    收货人<input name="consignee" type="text" id="consignee" size="15">
+    订单状态    <select name="status" id="status">
+      <option value="-1">请选择...</option>
+      <option value="0" selected="">待确认</option><option value="100">待付款</option><option value="101">待发货</option><option value="102">已完成</option><option value="1">付款中</option><option value="2">取消</option><option value="3">无效</option><option value="4">退货</option><option value="6">部分发货</option>    </select>
+    <input type="submit" value=" 搜索 " class="button">
+    <span class="btn-search cl-link" style="padding-left: 20px" onclick="detailSearch()">高级搜索</span>
+    <!--ERP link-->
+
+            <!--<a href="" class="btn-ERP">进入<i class="cl-red">ERP</i>处理订单</a>
+      <a href="" class="btn-ERP">授权绑定<i class="cl-red">ERP</i></a>
+      <a href="" class="btn-ERP">了解详情开通<i class="cl-red">ERP</i></a>-->
+
+
+
+    <!--ERP link-->
+    <!--<a href="order.php?act=list&composite_status=0">待确认</a>-->
+    <!--<a href="order.php?act=list&composite_status=100">待付款</a>-->
+    <!--<a href="order.php?act=list&composite_status=101">待发货</a>-->
+
   </form>
 </div>
 
@@ -176,13 +177,13 @@ var cancel_color = "无样式";
     @foreach ($order_list as $order)
     <tr>
     <td><input type="checkbox" name="checkboxes[]" value="72"></td>
-    <td>{{ $order->order_id }}</td>
-    <td class="first-cell" style=""><span onclick="listTable.edit(this, 'edit_goods_name', 72)">{{ $order->order_sn }}</span></td>
-    <td>{{ $order->order_status }}</td>
-    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">{{ $order->username }}</span></td>
-    <td align="center"><img src="images/yes.svg" width="20" onclick="listTable.toggle(this, 'toggle_on_sale', 72)" />{{ $order->phone }}</td>
-    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_best', 72)" />{{ $order->created_at }}</td>
-    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_new', 72)" />{{ $order->updated_at }}</td>
+    <td>{{ $order['order_id'] }}</td>
+    <td class="first-cell" style=""><span onclick="listTable.edit(this, 'edit_goods_name', 72)">{{ $order['order_sn'] }}</span></td>
+    <td>{{ $order['order_status'] }}</td>
+    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">{{ $order['username'] }}</span></td>
+    <td align="center"><img src="images/yes.svg" width="20" onclick="listTable.toggle(this, 'toggle_on_sale', 72)" />{{ $order['phone'] }}</td>
+    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_best', 72)" />{{ $order['created_at'] }}</td>
+    <td align="center"><img src="images/no.svg" width="20" onclick="listTable.toggle(this, 'toggle_new', 72)" />{{ $order['updated_at'] }}</td>
     
     <td align="center">
       <a href="../goods.php?id=72" target="_blank" title="查看">查看</a>
@@ -232,18 +233,7 @@ var cancel_color = "无样式";
     <td align="right" nowrap="true">
     <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
 <div id="turn-page">
-  <span id="pageCurrent">1</span> / <span id="totalPages">3</span>
-  页，每页 <input type='text' size='3' id='pageSize' value="15" onkeypress="return listTable.changePageSize(event)">
-  条记录，总共 <span id="totalRecords">38</span>
-  条记录
-  <span id="page-link">
-    <a href="javascript:listTable.gotoPageFirst()">第一页</a>
-    <a href="javascript:listTable.gotoPagePrev()">上一页</a>
-    <a href="javascript:listTable.gotoPageNext()">下一页</a>
-    <a href="javascript:listTable.gotoPageLast()">最末页</a>
-    <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
-      <option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>    </select>
-  </span>
+  {{ $order_list->links() }}
 </div>
     </td>
   </tr>

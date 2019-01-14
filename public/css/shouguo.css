@@ -1,0 +1,32 @@
+.headerttt{ width:90%; margin: 0 auto; height: 25px;}
+.banner{ 
+    height: 399px ; 
+    width:100%;
+    background-image:url(/storage/images/banner/1.jpg);
+
+}
+.small_banner {
+    width:80%; margin: 0 auto; height: 201px ;  margin-top: 15px; 
+    
+}
+
+.small_banner_left {
+    
+    height: 201px ;  
+    float:left;
+}
+
+.small_banner_right {
+    
+    height: 201px ; 
+    float:left;
+    margin-left: 25px;
+}
+
+.footer{
+    margin-top: 15px;
+    text-align: center;
+    line-height: 20px;
+     height: 20px ; 
+    
+}

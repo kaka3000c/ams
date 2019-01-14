@@ -30,36 +30,36 @@ var helpLang = "zh_cn";
   <div id="main-div">
     <div id="menu-list">
       <ul class="menu" id="menu-ul">
-                    <li key="01_certificate_manage" class="icon-certificate" data-url="certificate.php?act=list_edit" data-key="certificate" name="menu" onclick="showsub(this)">
-          云服务中心                    <div class="submenu">
-            <div class="title">云服务中心</div>
+        
+                        <li key="03_promotion" class="icon-promotion" data-url="/admin/product" data-key="04_bonustype_list" name="menu" onclick="showsub(this)">
+          商品管理                    <div class="submenu">
+            <div class="title">商品管理</div>
             <ul>
-                          <li id="sub-menu-certificate" class="menu-item" onclick="showact(this, event)"><a href="certificate.php?act=list_edit" target="main-frame">授权绑定</a></li>
-                          <li id="sub-menu-logistic_tracking" class="menu-item" onclick="showact(this, event)"><a href="logistic_tracking.php" target="main-frame">云起物流</a></li>
-                          <li id="sub-menu-service_market" class="menu-item" onclick="showact(this, event)"><a href="service_market.php" target="main-frame">服务市场</a></li>
-                          <li id="sub-menu-sms_resource" class="menu-item" onclick="showact(this, event)"><a href="sms_resource.php" target="main-frame">短信平台</a></li>
-                        </ul>
+                          <li id="sub-menu-04_bonustype_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/product" target="main-frame">商品列表</a></li>
+                          <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/product/add" target="main-frame">添加新商品</a></li>
+                        <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/category" target="main-frame">商品分类</a></li>
+                       <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/brand" target="main-frame">商品品牌</a></li>
+                       <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/goodstype" target="main-frame">商品类型</a></li>
+                       <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/tag" target="main-frame">标签管理</a></li>
+                      <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/product/trash" target="main-frame">商品回收站</a></li>
+         
+            </ul>
           </div>
                   </li>
-                          <li key="02_cat_and_goods" class="icon-goods" data-url="/admin/banner" data-key="01_goods_list" name="menu" onclick="showsub(this)">
-          Banner管理                    <div class="submenu">
-            <div class="title">Banner管理 </div>
+              <li key="03_promotion" class="icon-promotion" data-url="/admin/bonus" data-key="04_bonustype_list" name="menu" onclick="showsub(this)">
+          促销管理                    <div class="submenu">
+            <div class="title">促销管理</div>
             <ul>
-                          <li id="sub-menu-01_goods_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/banner" target="main-frame">Banner列表</a></li>
-                          <li id="sub-menu-02_goods_add" class="menu-item" onclick="showact(this, event)"><a href="/admin/banner/add" target="main-frame">添加Banner</a></li>
-                       </ul>
+                          <li id="sub-menu-04_bonustype_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/bonus" target="main-frame">红包类型</a></li>
+                        
+            
+            </ul>
           </div>
                   </li>
-                          <li key="03_promotion" class="icon-promotion" data-url="/admin/product" data-key="04_bonustype_list" name="menu" onclick="showsub(this)">
-          产品管理                    <div class="submenu">
-            <div class="title">产品管理</div>
-            <ul>
-                          <li id="sub-menu-04_bonustype_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/product" target="main-frame">产品列表</a></li>
-                          <li id="sub-menu-06_pack_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/product/add" target="main-frame">产品添加</a></li>
-                        </ul>
-          </div>
-                  </li>
-                          <li key="04_order" class="icon-order" data-url="order.php?act=list" data-key="02_order_list" name="menu" onclick="showsub(this)">
+                      
+                
+                     
+                          <li key="04_order" class="icon-order" data-url="/admin/order" data-key="02_order_list" name="menu" onclick="showsub(this)">
           订单管理                    <div class="submenu">
             <div class="title">订单管理</div>
             <ul>
@@ -67,20 +67,22 @@ var helpLang = "zh_cn";
                           <li id="sub-menu-03_order_query" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=order_query" target="main-frame">订单查询</a></li>
                           <li id="sub-menu-04_merge_order" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=merge" target="main-frame">合并订单</a></li>
                           <li id="sub-menu-05_edit_order_print" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=templates" target="main-frame">订单打印</a></li>
-                          <li id="sub-menu-06_undispose_booking" class="menu-item" onclick="showact(this, event)"><a href="goods_booking.php?act=list_all" target="main-frame">缺货登记</a></li>
+                          <li id="sub-menu-06_undispose_booking" class="menu-item" onclick="showact(this, event)"><a href="/admin/bookinggood" target="main-frame">缺货登记</a></li>
                           <li id="sub-menu-08_add_order" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=add" target="main-frame">添加订单</a></li>
                           <li id="sub-menu-09_delivery_order" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=delivery_list" target="main-frame">发货单列表</a></li>
                           <li id="sub-menu-10_back_order" class="menu-item" onclick="showact(this, event)"><a href="order.php?act=back_list" target="main-frame">退货单列表</a></li>
                         </ul>
           </div>
                   </li>
-                          <li key="05_banner" class="icon-banner" data-url="ads.php?act=list" data-key="ad_list" name="menu" onclick="showsub(this)">
+                        <li key="02_cat_and_goods" class="icon-goods" data-url="/admin/banner" data-key="01_goods_list" name="menu" onclick="showsub(this)">
           广告管理                    <div class="submenu">
-            <div class="title">广告管理</div>
+            <div class="title">广告管理 </div>
             <ul>
-                          <li id="sub-menu-ad_list" class="menu-item" onclick="showact(this, event)"><a href="ads.php?act=list" target="main-frame">广告列表</a></li>
-                          <li id="sub-menu-ad_position" class="menu-item" onclick="showact(this, event)"><a href="ad_position.php?act=list" target="main-frame">广告位置</a></li>
-                        </ul>
+                          <li id="sub-menu-01_goods_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/banner" target="main-frame">广告列表</a></li>
+                          <li id="sub-menu-02_goods_add" class="menu-item" onclick="showact(this, event)"><a href="/admin/banner/add" target="main-frame">添加广告</a></li>
+                          <li id="sub-menu-02_goods_add" class="menu-item" onclick="showact(this, event)"><a href="/admin/adposition" target="main-frame">广告位置</a></li>
+                      
+            </ul>
           </div>
                   </li>
                           <li key="06_stats" class="icon-stats" data-url="flow_stats.php?act=view" data-key="flow_stats" name="menu" onclick="showsub(this)">
@@ -100,41 +102,49 @@ var helpLang = "zh_cn";
                         </ul>
           </div>
                   </li>
-                          <li key="07_content" class="icon-content" data-url="articlecat.php?act=list" data-key="02_articlecat_list" name="menu" onclick="showsub(this)">
+                          <li key="07_content" class="icon-content" data-url="/admin/articlecat" data-key="02_articlecat_list" name="menu" onclick="showsub(this)">
           文章管理                    <div class="submenu">
             <div class="title">文章管理</div>
             <ul>
-                          <li id="sub-menu-02_articlecat_list" class="menu-item" onclick="showact(this, event)"><a href="articlecat.php?act=list" target="main-frame">文章分类</a></li>
-                          <li id="sub-menu-03_article_list" class="menu-item" onclick="showact(this, event)"><a href="article.php?act=list" target="main-frame">文章列表</a></li>
+                          <li id="sub-menu-02_articlecat_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/articlecat" target="main-frame">文章分类</a></li>
+                          <li id="sub-menu-03_article_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/article" target="main-frame">文章列表</a></li>
                           <li id="sub-menu-article_auto" class="menu-item" onclick="showact(this, event)"><a href="article_auto.php?act=list" target="main-frame">文章自动发布</a></li>
                           <li id="sub-menu-vote_list" class="menu-item" onclick="showact(this, event)"><a href="vote.php?act=list" target="main-frame">在线调查</a></li>
                         </ul>
           </div>
                   </li>
-                          <li key="08_members" class="icon-members" data-url="users.php?act=list" data-key="03_users_list" name="menu" onclick="showsub(this)">
+                          <li key="08_members" class="icon-members" data-url="/admin/user" data-key="03_users_list" name="menu" onclick="showsub(this)">
           会员管理                    <div class="submenu">
             <div class="title">会员管理</div>
             <ul>
                           <li id="sub-menu-03_users_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/user" target="main-frame">会员列表</a></li>
-                          <li id="sub-menu-04_users_add" class="menu-item" onclick="showact(this, event)"><a href="users.php?act=add" target="main-frame">添加会员</a></li>
+                          <li id="sub-menu-04_users_add" class="menu-item" onclick="showact(this, event)"><a href="/admin/user/add" target="main-frame">添加会员</a></li>
                           <li id="sub-menu-05_user_rank_list" class="menu-item" onclick="showact(this, event)"><a href="user_rank.php?act=list" target="main-frame">会员等级</a></li>
-                          <li id="sub-menu-06_list_integrate" class="menu-item" onclick="showact(this, event)"><a href="integrate.php?act=list" target="main-frame">会员整合</a></li>
-                          <li id="sub-menu-08_unreply_msg" class="menu-item" onclick="showact(this, event)"><a href="user_msg.php?act=list_all" target="main-frame">会员留言</a></li>
+               
+                          <li id="sub-menu-08_unreply_msg" class="menu-item" onclick="showact(this, event)"><a href="/admin/user/feedback_index" target="main-frame">会员留言</a></li>
                           <li id="sub-menu-09_user_account" class="menu-item" onclick="showact(this, event)"><a href="user_account.php?act=list" target="main-frame">充值和提现申请</a></li>
                           <li id="sub-menu-10_user_account_manage" class="menu-item" onclick="showact(this, event)"><a href="user_account_manage.php?act=list" target="main-frame">资金管理</a></li>
                         </ul>
           </div>
                   </li>
-                          <li key="10_priv_admin" class="icon-priv" data-url="privilege.php?act=list" data-key="admin_list" name="menu" onclick="showsub(this)">
+                          <li key="10_priv_admin" class="icon-priv" data-url="/admin/adminuser" data-key="admin_list" name="menu" onclick="showsub(this)">
           权限管理                    <div class="submenu">
             <div class="title">权限管理</div>
             <ul>
                           <li id="sub-menu-admin_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/adminuser" target="main-frame">管理员列表</a></li>
-                          <li id="sub-menu-admin_logs" class="menu-item" onclick="showact(this, event)"><a href="admin_logs.php?act=list" target="main-frame">管理员日志</a></li>
-                          <li id="sub-menu-admin_role" class="menu-item" onclick="showact(this, event)"><a href="role.php?act=list" target="main-frame">角色管理</a></li>
-                          <li id="sub-menu-agency_list" class="menu-item" onclick="showact(this, event)"><a href="agency.php?act=list" target="main-frame">办事处列表</a></li>
-                          <li id="sub-menu-suppliers_list" class="menu-item" onclick="showact(this, event)"><a href="suppliers.php?act=list" target="main-frame">供货商列表</a></li>
+                          <li id="sub-menu-admin_logs" class="menu-item" onclick="showact(this, event)"><a href="/admin/adminlog" target="main-frame">管理员日志</a></li>
+                          <li id="sub-menu-admin_role" class="menu-item" onclick="showact(this, event)"><a href="/admin/role" target="main-frame">角色管理</a></li>
+                          <li id="sub-menu-agency_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/agency" target="main-frame">办事处列表</a></li>
+                          <li id="sub-menu-suppliers_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/supplier" target="main-frame">供货商列表</a></li>
                         </ul>
+          </div>
+                  </li>
+       <li key="10_priv_admin" class="icon-priv" data-url="/admin/shop" data-key="admin_list" name="menu" onclick="showsub(this)">
+          商家管理                    <div class="submenu">
+            <div class="title">商家管理</div>
+            <ul>
+                          <li id="sub-menu-admin_list" class="menu-item" onclick="showact(this, event)"><a href="/admin/shop" target="main-frame">商家列表</a></li>
+                       </ul>
           </div>
                   </li>
                           <li key="11_system" class="icon-system" data-url="shop_config.php?act=list_edit" data-key="01_shop_config" name="menu" onclick="showsub(this)">

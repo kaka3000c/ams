@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>ECSHOP 管理中心 - Banner列表 </title>
+<title>ECSHOP 管理中心 - 管理员列表 </title>
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="/css/general.css" rel="stylesheet" type="text/css" />
@@ -109,36 +109,11 @@ var cancel_color = "无样式";
 <div class="mask-black" id="CMask"></div>
 <!--遮罩-->
 <h1>
-      <a href="goods.php?act=add" class="btn btn-right btn-add-goods">添加新商品</a>
-  <a class="btn btn-right" href="http://yunqi.shopex.cn/products/huodiantong" target="_blank">快速录入商品</a>
-  
-    <span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1">&nbsp;&nbsp;>&nbsp;&nbsp;商品列表 </span>
+      <a href="/admin/adminuser/add" class="btn btn-right btn-add-goods">添加管理员</a>
+   
+    <span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1">&nbsp;&nbsp;>&nbsp;&nbsp;管理员列表 </span>
   <div style="clear:both"></div>
 </h1><script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="js/listtable.js"></script>
-<!-- 商品搜索 -->
-<!-- $Id: goods_search.htm 16790 2009-11-10 08:56:15Z wangleisvn $ -->
-<div class="form-div">
-  <form action="javascript:searchGoods()" name="searchForm">
-        <!-- 分类 -->
-    商品分类
-    <select name="cat_id"><option value="0">所有分类</option><option value="26" >家用电器</option><option value="27" >&nbsp;&nbsp;&nbsp;&nbsp;大家电</option><option value="28" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;平板电脑</option><option value="32" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冰箱</option><option value="29" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家用空调</option><option value="30" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家电配件</option><option value="31" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;洗衣机</option><option value="25" >数码时尚</option><option value="18" >智能硬件</option><option value="22" >移动电源</option><option value="6" >手机</option><option value="9" >&nbsp;&nbsp;&nbsp;&nbsp;电池</option><option value="8" >&nbsp;&nbsp;&nbsp;&nbsp;耳机</option><option value="19" >配件</option><option value="24" >&nbsp;&nbsp;&nbsp;&nbsp;数码时尚</option><option value="20" >&nbsp;&nbsp;&nbsp;&nbsp;保护壳</option><option value="16" >服装</option><option value="12" >充值卡</option><option value="1" >手机类型</option><option value="3" >&nbsp;&nbsp;&nbsp;&nbsp;小型手机</option><option value="4" >&nbsp;&nbsp;&nbsp;&nbsp;3G手机</option></select>
-    <!-- 品牌 -->
-    品牌
-    <select name="brand_id"><option value="0">所有品牌</option><option value="4">飞利浦</option><option value="5">夏新</option><option value="15">仓品</option></select>
-    <!-- 推荐 -->
-    推荐类别
-    <select name="intro_type"><option value="0">全部</option><option value="is_best">精品</option><option value="is_new">新品</option><option value="is_hot">热销</option><option value="is_promote">特价</option><option value="all_type">全部推荐</option></select>
-        
-    <!-- 供货商 -->
-    供货商
-    <select name="suppliers_id"><option value="0">全部</option><option value="1">北京供货商</option><option value="2">上海供货商</option></select>
-        <!-- 上架 -->
-    上架状态
-    <input type="radio" name="is_on_sale" id="" value="1"> 上架    <input type="radio" name="is_on_sale" id="" value="0"> 下架        <!-- 关键字 -->
-    &nbsp;&nbsp; 关键字 <input type="text" name="keyword" size="25" />
-    <button type="submit" class="btn"> 搜索 </button>
-  </form>
-</div>
 
 
 <script>
@@ -162,7 +137,7 @@ var cancel_color = "无样式";
   <div class="list-div" id="listDiv">
 <table cellpadding="3" cellspacing="1">
   <tr>
-    <th class="checks"><input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox"></th>
+   
     <th><a href="javascript:listTable.sort('goods_id'); ">编号</a><img src="images/sort_desc.png"/></th>
     <th><a href="javascript:listTable.sort('goods_name'); ">账号</a></th>
     <th><a href="javascript:listTable.sort('goods_sn'); ">email</a></th>
@@ -174,20 +149,16 @@ var cancel_color = "无样式";
   </tr>
     @foreach ($adminuser_list as $adminuser)
     <tr>
-    <td><input type="checkbox" name="checkboxes[]" value="72"></td>
-    <td>{{ $adminuser->user_id }}</td>
-    <td class="first-cell" style=""><span onclick="listTable.edit(this, 'edit_goods_name', 72)">{{ $adminuser->user_name }}</span></td>
-    <td>{{ $adminuser->email }}</td>
-    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">{{ $adminuser->last_ip }}</span></td>
-    <td align="center">{{ $adminuser->created_at }}</td>
-    <td align="center">{{ $adminuser->updated_at }}</td>
+   
+    <td>{{ $adminuser['user_id'] }}</td>
+    <td class="first-cell" style=""><span onclick="listTable.edit(this, 'edit_goods_name', 72)">{{ $adminuser['user_name'] }}</span></td>
+    <td>{{ $adminuser['email'] }}</td>
+    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', 72)">{{ $adminuser['last_ip'] }}</span></td>
+    <td align="center">{{ $adminuser['created_at'] }}</td>
+    <td align="center">{{ $adminuser['updated_at'] }}</td>
  
     <td align="center">
-      <a href="../goods.php?id=72" target="_blank" title="查看">查看</a>
-      <a href="goods.php?act=edit&goods_id=72&extension_code=" title="编辑">编辑</a>
-      <a href="goods.php?act=copy&goods_id=72&extension_code=" title="复制">复制</a>
-      <a href="javascript:;" onclick="listTable.remove(72, '您确实要把该商品放入回收站吗？')" title="回收站">回收站</a>
-      <img src="images/empty.gif" width="16" height="16" border="0">          </td>
+     分派权限  查看日志  编辑  移除
   </tr>
     @endforeach
   </table>
@@ -230,18 +201,7 @@ var cancel_color = "无样式";
     <td align="right" nowrap="true">
     <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
 <div id="turn-page">
-  <span id="pageCurrent">1</span> / <span id="totalPages">3</span>
-  页，每页 <input type='text' size='3' id='pageSize' value="15" onkeypress="return listTable.changePageSize(event)">
-  条记录，总共 <span id="totalRecords">38</span>
-  条记录
-  <span id="page-link">
-    <a href="javascript:listTable.gotoPageFirst()">第一页</a>
-    <a href="javascript:listTable.gotoPagePrev()">上一页</a>
-    <a href="javascript:listTable.gotoPageNext()">下一页</a>
-    <a href="javascript:listTable.gotoPageLast()">最末页</a>
-    <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
-      <option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>    </select>
-  </span>
+    {{ $adminuser_list->links() }}
 </div>
     </td>
   </tr>
