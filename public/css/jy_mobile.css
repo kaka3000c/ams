@@ -1,0 +1,59 @@
+.jy_form{
+   
+    width: 238px;
+   
+    margin: 0 auto;
+    
+}
+.jy_form .title { font-weight: bold;height: 35px; text-align: center;}
+.jy_form_monologue  .title { font-weight: bold;height: 35px;}
+.jy_form_de {font-size: 14px;height: 35px; }
+
+.jy_form_input{
+    width: 138px;
+    height: 26px;
+    border: solid 1px #adadad;
+    border-radius: 3px;
+}
+.monologue{ height: 80px;width: 238px;}
+.jy_form_monologue{
+     display: block;
+    width: 238px;
+     height: 100px;
+      margin: 0 auto;
+    margin-bottom: 0px;
+    margin-bottom: 10px;
+    
+}
+
+#layui-laydate1{ }
+
+.jy_head{
+    width: 60px;
+    
+    height: 60px;
+}
+
+
+.jy_touxiang{
+    width: 60px;
+    margin: 0 auto;
+    height: 60px;
+}
+.jy_touxiang img{margin: 0 auto; width: 60px;height: 60px;}
+.jy_mobile{
+    width: 70%;
+     margin: 0 auto;
+    margin-top: 12px;
+    margin-left: 10px;
+    text-align: center;
+}
+.jy_user_data {
+    width: 95%;
+    margin: 0 auto;
+    height:1300px;
+    padding-bottom: 45px;
+    border:solid 1px #b94a48;
+}
+.touxiang_input{width: 150px;}
+

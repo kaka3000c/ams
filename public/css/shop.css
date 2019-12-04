@@ -1,0 +1,279 @@
+.container {
+    width: 900px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 50px 0 21px;
+    height: 24px;
+}
+
+.header .header-logo {
+    float: left;
+    width: 70px;
+    height: 24px;
+    position: relative;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAAYCAMAAABwdHsxAAAA/FBMV…mmd3z/9x1RNNxbheS1N2kq6eoEkrZ+YOLox+UdzjpYzyd1ep66B/0wGAAAAABJRU5ErkJggg==) no-repeat;
+}
+
+.header .header-title {
+    position: relative;
+    top: 7px;
+    font-size: 16px;
+    color: #333;
+    padding-left: 10px;
+    margin: 0 100px 0 80px;
+    border-left: 1px solid #e8e8e8;
+}
+
+
+@media screen and (max-height: 650px)
+
+.footer {
+    position: static;
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    color: #999;
+    width: 100%;
+    bottom: 30px;
+    left: 0;
+    margin-top: 50px;
+}
+.footer .copyright {
+    line-height: 12px;
+}
+.footer .copyright a {
+    color: #999;
+}
+
+a {
+    text-decoration: none;
+}
+.content-wrap {
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+.content-wrap.content-wrap-basic .content-inner-left {
+    width: 500px;
+}
+
+.pull-left {
+    float: left;
+}
+
+.box {
+    width: 410px;
+    min-height: 360px;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0,0,0,.08);
+    margin: 2px 20px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.box .head {
+    position: relative;
+}
+.box .head ul {
+    overflow: hidden;
+}
+.box .head ul li.active {
+    color: #333;
+    font-weight: 700;
+    cursor: default;
+}
+
+.box .head ul li {
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    color: #999;
+    margin-top: 15px;
+    padding: 0 15px;
+    position: relative;
+    cursor: pointer;
+}
+.box .head ul li {
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    color: #999;
+    margin-top: 15px;
+    padding: 0 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.box .head ul li:after {
+    content: " ";
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: #e5e5e5;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.box .head .qrcode {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.box .content {
+    padding: 20px 15px 0;
+}
+.login {
+    width: 350px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login .zent-form .zent-form__control-group {
+    padding-top: 18px;
+}
+.zent-form .zent-form__control-group {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1px;
+    padding-top: 45px;
+    height: 35px;
+}
+.zent-form--horizontal .zent-form__control-label {
+    
+    width: 120px;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: right;
+    vertical-align: top;
+}
+
+.login .zent-form .password-field .zent-form__controls, .login .zent-form .phone-field .zent-form__controls {
+    width: 151px;
+}
+.title{display: inline-block;}
+.zent-input-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    height: 30px;
+    max-height: 36px;
+}
+.phone-field .areacode {
+    min-width: 90px;
+    width: 90px;
+}
+
+.zent-select {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0;
+    line-height: 1.5;
+    margin-right: 10px;
+    outline: none;
+    position: relative;
+    text-align: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 160px;
+    vertical-align: middle;
+}
+
+.login .zent-form .zent-form__control-group {
+    padding-top: 18px;
+}
+
+.login .zent-form .zent-form__control-group {
+    padding-top: 18px;
+}
+
+.zent-form .zent-form__control-group {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1px;
+    padding-top: 45px;
+    height: 35px;
+}
+
+.zent-form .zent-form__control-group {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1px;
+    padding-top: 45px;
+    height: 35px;
+}
+.login .zent-form.zent-form--horizontal .zent-form__form-actions {
+    padding: 40px 0 20px;
+    position: relative;
+}
+
+.zent-btn-primary:active {
+    color: #fff;
+    background: #27f;
+    border-color: #27f;
+}
+
+.zent-btn-primary:hover {
+    color: #fff;
+    background: #59f;
+    border-color: #59f;
+}
+.zent-form.zent-form--horizontal .zent-form__form-actions button {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+}
+.content-wrap.content-wrap-basic .content-inner-right {
+    width: 400px;
+}
+
+.pull-left {
+    float: left;
+}
+
+.banner-ct {
+    text-align: center;
+    margin-top: 23px;
+}
+
+.banner-ct img {
+    width: 380px;
+}
+.zent-form--horizontal .zent-form__controls {
+    display: inline-block;
+    word-break: break-all;
+    vertical-align: top;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    
+}
+li {list-style-type:none;}
+
+.app {
+    width: 100%;
+    float: left;
+}
+ .control-label {
+    width: 140px;
+    font-size: 14px;
+    line-height: 18px;
+    float: left;
+    
+    padding-top: 5px;
+    text-align: right;
+}
+.controls span {
+    font-size: 14px;
+}
+.control-group {
+    height:30px;
+  
+}
